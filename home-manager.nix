@@ -184,6 +184,19 @@ in
       };
     };
 
+    programs.chromium = {
+      enable = true;
+      package = pkgs.brave;
+      extensions = [
+        # { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+      ];
+      commandLineArgs = [
+        # "--disable-features=WebRtcAllowInputVolumeAdjustment"
+        "--enable-features=TouchpadOverscrollHistoryNavigation,UseOzonePlatform"
+        "--ozone-platform=wayland"
+      ];
+    };
+
     programs.ghostty = {
       enable = true;
       settings = {
