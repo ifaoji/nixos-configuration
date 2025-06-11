@@ -27,6 +27,7 @@ in
       pkgs.gnomeExtensions.blur-my-shell
       pkgs.gnomeExtensions.clipboard-history
       pkgs.gnomeExtensions.dash-to-dock
+      pkgs.gnomeExtensions.rounded-window-corners-reborn
     ];
 
     # The state version is required and should stay at the version you
@@ -51,6 +52,7 @@ in
           "blur-my-shell@aunetx"
           "clipboard-history@alexsaveau.dev"
           "dash-to-dock@micxgx.gmail.com"
+          "rounded-window-corners@fxgn"
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -145,6 +147,9 @@ in
         "show-trash"=false;
         "transparency-mode"="FIXED";
         "unity-backlit-items"=false;
+      };
+      "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
+        "settings-version" = "uint32 7";
       };
     };
 
