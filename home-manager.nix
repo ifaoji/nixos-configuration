@@ -24,6 +24,7 @@ in
       pkgs.httpie
       pkgs._1password-gui
       pkgs.git
+      pkgs.gnomeExtensions.clipboard-history
     ];
 
     # The state version is required and should stay at the version you
@@ -42,6 +43,16 @@ in
       "org/gnome/desktop/wm/preferences" = {
         button-layout = ":minimize,maximize,close";
         group-windows = false;
+      };
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "clipboard-history@alexsaveau.dev"
+        ];
+      };
+      "org/gnome/shell/extensions/clipboard-history" = {
+        "cache-only-favorites"=false;
+        "strip-text"=true;
+        "toggle-menu"=[ "<Super>v" ];
       };
     };
 
