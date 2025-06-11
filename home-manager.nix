@@ -25,6 +25,7 @@ in
       pkgs._1password-gui
       pkgs.git
       pkgs.gnomeExtensions.clipboard-history
+      pkgs.gnomeExtensions.dash-to-dock
     ];
 
     # The state version is required and should stay at the version you
@@ -53,6 +54,51 @@ in
         "cache-only-favorites"=false;
         "strip-text"=true;
         "toggle-menu"=[ "<Super>v" ];
+      };
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        "always-center-icons"=true;
+        "application-counter-overrides-notifications"=true;
+        "apply-custom-theme"=false;
+        "autohide-in-fullscreen"=false;
+        "background-color"="rgb(0,0,0)";
+        "background-opacity"=1.0;
+        "click-action"="minimize-or-previews";
+        "custom-background-color"=true;
+        "custom-theme-shrink"=true;
+        "customize-alphas"=true;
+        "dash-max-icon-size"=30;
+        "disable-overview-on-startup"=false;
+        "dock-fixed"=false;
+        "dock-position"="BOTTOM";
+        "extend-height"=true;
+        "height-fraction"=0.90000000000000002;
+        "hide-tooltip"=false;
+        "hot-keys"=false;
+        "icon-size-fixed"=false;
+        "intellihide"=true;
+        "intellihide-mode"="ALL_WINDOWS";
+        "isolate-monitors"=false;
+        "isolate-workspaces"=false;
+        "max-alpha"=0.80000000000000004;
+        "middle-click-action"="launch";
+        "multi-monitor"=true;
+        "preferred-monitor"=-2;
+        "preferred-monitor-by-connector"="eDP-1";
+        "preview-size-scale"=0.0;
+        "running-indicator-dominant-color"=true;
+        "running-indicator-style"="DASHES";
+        "shift-click-action"="minimize";
+        "shift-middle-click-action"="launch";
+        "show-apps-always-in-the-edge"=false;
+        "show-apps-at-top"=true;
+        "show-icons-emblems"=true;
+        "show-icons-notifications-counter"=true;
+        "show-mounts-network"=true;
+        "show-running"=true;
+        "show-show-apps-button"=true;
+        "show-trash"=false;
+        "transparency-mode"="FIXED";
+        "unity-backlit-items"=false;
       };
     };
 
