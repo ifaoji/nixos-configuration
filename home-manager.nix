@@ -24,6 +24,7 @@ in
       pkgs.httpie
       pkgs._1password-gui
       pkgs.git
+      pkgs.gnomeExtensions.blur-my-shell
       pkgs.gnomeExtensions.clipboard-history
       pkgs.gnomeExtensions.dash-to-dock
     ];
@@ -47,9 +48,74 @@ in
       };
       "org/gnome/shell" = {
         enabled-extensions = [
+          "blur-my-shell@aunetx"
           "clipboard-history@alexsaveau.dev"
           "dash-to-dock@micxgx.gmail.com"
         ];
+      };
+      "org/gnome/shell/extensions/blur-my-shell" = {
+        # The 'pipelines' setting is a GVariant string.
+        # It needs to be represented as a Nix string, with internal quotes escaped.
+        pipelines = "pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_61478604095462'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'corner'>, 'id': <'effect_99011191584976'>, 'params': <{'radius': <24>}>}>]>}, 'pipeline_45077595068140': {'name': <'Dock'>, 'effects': <[<{'type': <'corner'>, 'id': <'effect_35950350830793'>, 'params': <{'radius': <48>, 'corners_bottom': <true>, 'corners_top': <false>}>}>]>}}";
+        "settings-version" = 2;
+
+        # Sub-sections in Dconf become nested attribute sets in Nix.
+        appfolder = {
+          brightness = 0.59999999999999998;
+          sigma = 30;
+        };
+
+        applications = {
+          blur = false;
+          "blur-on-overview" = false;
+          "dynamic-opacity" = true;
+        };
+
+        "coverflow-alt-tab" = {
+          # String values are represented as Nix strings.
+          pipeline = "pipeline_default";
+        };
+
+        "dash-to-dock" = {
+          blur = false;
+          brightness = 1.0;
+          "override-background" = false;
+          pipeline = "pipeline_45077595068140";
+          sigma = 0;
+          "static-blur" = true;
+          "style-dash-to-dock" = 2;
+          "unblur-in-overview" = false;
+        };
+
+        hidetopbar = {
+          compatibility = false;
+        };
+
+        lockscreen = {
+          pipeline = "pipeline_default";
+        };
+
+        overview = {
+          pipeline = "pipeline_default";
+        };
+
+        panel = {
+          blur = false;
+          brightness = 0.59999999999999998;
+          "force-light-text" = true;
+          pipeline = "pipeline_default";
+          sigma = 8;
+          "static-blur" = false;
+        };
+
+        screenshot = {
+          pipeline = "pipeline_default";
+        };
+
+        "window-list" = {
+          brightness = 0.59999999999999998;
+          sigma = 30;
+        };
       };
       "org/gnome/shell/extensions/clipboard-history" = {
         "cache-only-favorites"=false;
