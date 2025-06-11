@@ -61,13 +61,11 @@ in
           "unblank@sun.wxg@gmail.com"
         ];
       };
+
       "org/gnome/shell/extensions/blur-my-shell" = {
-        # The 'pipelines' setting is a GVariant string.
-        # It needs to be represented as a Nix string, with internal quotes escaped.
         pipelines = "pipelines={'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000000'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_61478604095462'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'corner'>, 'id': <'effect_99011191584976'>, 'params': <{'radius': <24>}>}>]>}, 'pipeline_45077595068140': {'name': <'Dock'>, 'effects': <[<{'type': <'corner'>, 'id': <'effect_35950350830793'>, 'params': <{'radius': <48>, 'corners_bottom': <true>, 'corners_top': <false>}>}>]>}}";
         "settings-version" = 2;
 
-        # Sub-sections in Dconf become nested attribute sets in Nix.
         "appfolder/brightness" = 0.59999999999999998;
         "appfolder/sigma" = 30;
 
@@ -104,79 +102,85 @@ in
         "window-list/brightness" = 0.59999999999999998;
         "window-listsigma" = 30;
       };
+
       "org/gnome/shell/extensions/clipboard-history" = {
         "cache-only-favorites"=false;
         "strip-text"=true;
         "toggle-menu"=[ "<Super>v" ];
       };
+
       "org/gnome/shell/extensions/dash-to-dock" = {
-        "always-center-icons"=true;
-        "application-counter-overrides-notifications"=true;
-        "apply-custom-theme"=false;
-        "autohide-in-fullscreen"=false;
-        "background-color"="rgb(0,0,0)";
-        "background-opacity"=1.0;
-        "click-action"="minimize-or-previews";
-        "custom-background-color"=true;
-        "custom-theme-shrink"=true;
-        "customize-alphas"=true;
-        "dash-max-icon-size"=30;
-        "disable-overview-on-startup"=false;
-        "dock-fixed"=false;
-        "dock-position"="BOTTOM";
-        "extend-height"=true;
-        "height-fraction"=0.90000000000000002;
-        "hide-tooltip"=false;
-        "hot-keys"=false;
-        "icon-size-fixed"=false;
-        "intellihide"=true;
-        "intellihide-mode"="ALL_WINDOWS";
-        "isolate-monitors"=false;
-        "isolate-workspaces"=false;
-        "max-alpha"=0.80000000000000004;
-        "middle-click-action"="launch";
-        "multi-monitor"=true;
-        "preferred-monitor"=-2;
-        "preferred-monitor-by-connector"="eDP-1";
-        "preview-size-scale"=0.0;
-        "running-indicator-dominant-color"=true;
-        "running-indicator-style"="DASHES";
-        "shift-click-action"="minimize";
-        "shift-middle-click-action"="launch";
-        "show-apps-always-in-the-edge"=false;
-        "show-apps-at-top"=true;
-        "show-icons-emblems"=true;
-        "show-icons-notifications-counter"=true;
-        "show-mounts-network"=true;
-        "show-running"=true;
-        "show-show-apps-button"=true;
-        "show-trash"=false;
-        "transparency-mode"="FIXED";
-        "unity-backlit-items"=false;
+        "always-center-icons" = true;
+        "application-counter-overrides-notifications" = true;
+        "apply-custom-theme" = false;
+        "autohide-in-fullscreen" = false;
+        "background-color" = "rgb(0,0,0)";
+        "background-opacity" = 1.0;
+        "click-action" = "minimize-or-previews";
+        "custom-background-color" = true;
+        "custom-theme-shrink" = true;
+        "customize-alphas" = true;
+        "dash-max-icon-size" = 30;
+        "disable-overview-on-startup" = false;
+        "dock-fixed" = false;
+        "dock-position" = "BOTTOM";
+        "extend-height" = true;
+        "height-fraction" = 0.90000000000000002;
+        "hide-tooltip" = false;
+        "hot-keys" = false;
+        "icon-size-fixed" = false;
+        "intellihide" = true;
+        "intellihide-mode" = "ALL_WINDOWS";
+        "isolate-monitors" = false;
+        "isolate-workspaces" = false;
+        "max-alpha" = 0.80000000000000004;
+        "middle-click-action" = "launch";
+        "multi-monitor" = true;
+        "preferred-monitor" = -2;
+        "preferred-monitor-by-connector" = "eDP-1";
+        "preview-size-scale" = 0.0;
+        "running-indicator-dominant-color" = true;
+        "running-indicator-style" = "DASHES";
+        "shift-click-action" = "minimize";
+        "shift-middle-click-action" = "launch";
+        "show-apps-always-in-the-edge" = false;
+        "show-apps-at-top" = true;
+        "show-icons-emblems" = true;
+        "show-icons-notifications-counter" = true;
+        "show-mounts-network" = true;
+        "show-running" = true;
+        "show-show-apps-button" = true;
+        "show-trash" = false;
+        "transparency-mode" = "FIXED";
+        "unity-backlit-items" = false;
       };
+
       "org/gnome/shell/extensions/rounded-window-corners-reborn" = {
         "settings-version" = "uint32 7";
       };
+
       "org/gnome/shell/extensions/tiling-shell" = {
-        "active-screen-edges"=true;
-        "inner-gaps"="uint32 4";
-        "last-version-name-installed"="16.4";
-        "layouts-json"="[{'id':'Layout 1','tiles':[{'x':0,'y':0,'width':0.22,'height':0.5,'groups':[1,2]},{'x':0,'y':0.5,'width':0.22,'height':0.5,'groups':[1,2]},{'x':0.22,'y':0,'width':0.56,'height':1,'groups':[2,3]},{'x':0.78,'y':0,'width':0.22,'height':0.5,'groups':[3,4]},{'x':0.78,'y':0.5,'width':0.22,'height':0.5,'groups':[3,4]}]},{'id':'Layout 2','tiles':[{'x':0,'y':0,'width':0.22,'height':1,'groups':[1]},{'x':0.22,'y':0,'width':0.56,'height':1,'groups':[1,2]},{'x':0.78,'y':0,'width':0.22,'height':1,'groups':[2]}]},{'id':'Layout 3','tiles':[{'x':0,'y':0,'width':0.33,'height':1,'groups':[1]},{'x':0.33,'y':0,'width':0.67,'height':1,'groups':[1]}]},{'id':'Layout 4','tiles':[{'x':0,'y':0,'width':0.67,'height':1,'groups':[1]},{'x':0.67,'y':0,'width':0.33,'height':1,'groups':[1]}]}]";
-        "outer-gaps"="uint32 4";
-        "overridden-settings"="{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>Up']\",\"unmaximize\":\"['<Super>Down', '<Alt>F5']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}";
-        "override-window-menu"=true;
-        "resize-complementing-windows"=true;
-        "restore-window-original-size"=true;
-        "selected-layouts"=["['Layout 2']" "['Layout 2']"];
-        "show-indicator"=true;
-        "snap-assistant-threshold"="uint32 54";
-        "top-edge-maximize"=false;
+        "active-screen-edges" = true;
+        "inner-gaps" = "uint32 4";
+        "last-version-name-installed" = "16.4";
+        "layouts-json" = "[{'id':'Layout 1','tiles':[{'x':0,'y':0,'width':0.22,'height':0.5,'groups':[1,2]},{'x':0,'y':0.5,'width':0.22,'height':0.5,'groups':[1,2]},{'x':0.22,'y':0,'width':0.56,'height':1,'groups':[2,3]},{'x':0.78,'y':0,'width':0.22,'height':0.5,'groups':[3,4]},{'x':0.78,'y':0.5,'width':0.22,'height':0.5,'groups':[3,4]}]},{'id':'Layout 2','tiles':[{'x':0,'y':0,'width':0.22,'height':1,'groups':[1]},{'x':0.22,'y':0,'width':0.56,'height':1,'groups':[1,2]},{'x':0.78,'y':0,'width':0.22,'height':1,'groups':[2]}]},{'id':'Layout 3','tiles':[{'x':0,'y':0,'width':0.33,'height':1,'groups':[1]},{'x':0.33,'y':0,'width':0.67,'height':1,'groups':[1]}]},{'id':'Layout 4','tiles':[{'x':0,'y':0,'width':0.67,'height':1,'groups':[1]},{'x':0.67,'y':0,'width':0.33,'height':1,'groups':[1]}]}]";
+        "outer-gaps" = "uint32 4";
+        "overridden-settings" = "{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>Up']\",\"unmaximize\":\"['<Super>Down', '<Alt>F5']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}";
+        "override-window-menu" = true;
+        "resize-complementing-windows" = true;
+        "restore-window-original-size" = true;
+        "selected-layouts" = ["['Layout 2']" "['Layout 2']"];
+        "show-indicator" = true;
+        "snap-assistant-threshold" = "uint32 54";
+        "top-edge-maximize" = false;
       };
+
       "org/gnome/shell/extensions/transparent-window-moving" = {
-        "window-opacity"=240;
+        "window-opacity" = 240;
       };
+
       "org/gnome/shell/extensions/unblank" = {
-        "time"=0;
+        "time" = 0;
       };
     };
 
