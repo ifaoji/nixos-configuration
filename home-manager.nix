@@ -30,6 +30,7 @@ in
       pkgs.gnomeExtensions.rounded-window-corners-reborn
       pkgs.gnomeExtensions.tiling-shell
       pkgs.gnomeExtensions.transparent-window-moving
+      pkgs.gnomeExtensions.unblank
     ];
 
     # The state version is required and should stay at the version you
@@ -57,6 +58,7 @@ in
           "rounded-window-corners@fxgn"
           "tilingshell@ferrarodomenico.com"
           "transparent-window-moving@noobsai.github.com"
+          "unblank@sun.wxg@gmail.com"
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -172,6 +174,9 @@ in
       };
       "org/gnome/shell/extensions/transparent-window-moving" = {
         "window-opacity"=240;
+      };
+      "org/gnome/shell/extensions/unblank" = {
+        "time"=0;
       };
     };
 
