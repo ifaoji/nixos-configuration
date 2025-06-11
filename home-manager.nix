@@ -29,6 +29,7 @@ in
       pkgs.gnomeExtensions.dash-to-dock
       pkgs.gnomeExtensions.rounded-window-corners-reborn
       pkgs.gnomeExtensions.tiling-shell
+      pkgs.gnomeExtensions.transparent-window-moving
     ];
 
     # The state version is required and should stay at the version you
@@ -55,6 +56,7 @@ in
           "dash-to-dock@micxgx.gmail.com"
           "rounded-window-corners@fxgn"
           "tilingshell@ferrarodomenico.com"
+          "transparent-window-moving@noobsai.github.com"
         ];
       };
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -167,6 +169,9 @@ in
         "show-indicator"=true;
         "snap-assistant-threshold"="uint32 54";
         "top-edge-maximize"=false;
+      };
+      "org/gnome/shell/extensions/transparent-window-moving" = {
+        "window-opacity"=240;
       };
     };
 
