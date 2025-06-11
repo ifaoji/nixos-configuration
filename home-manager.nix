@@ -60,62 +60,41 @@ in
         "settings-version" = 2;
 
         # Sub-sections in Dconf become nested attribute sets in Nix.
-        appfolder = {
-          brightness = 0.59999999999999998;
-          sigma = 30;
-        };
+        "appfolder/brightness" = 0.59999999999999998;
+        "appfolder/sigma" = 30;
 
-        applications = {
-          blur = false;
-          "blur-on-overview" = false;
-          "dynamic-opacity" = true;
-        };
+        "applications/blur" = false;
+        "applications/blur-on-overview" = false;
+        "applications/dynamic-opacity" = true;
 
-        "coverflow-alt-tab" = {
-          # String values are represented as Nix strings.
-          pipeline = "pipeline_default";
-        };
+        "coverflow-alt-tab/pipeline" = "pipeline_default";
 
-        "dash-to-dock" = {
-          blur = false;
-          brightness = 1.0;
-          "override-background" = false;
-          pipeline = "pipeline_45077595068140";
-          sigma = 0;
-          "static-blur" = true;
-          "style-dash-to-dock" = 2;
-          "unblur-in-overview" = false;
-        };
+        "dash-to-dock/blur" = false;
+        "dash-to-dock/brightness" = 1.0;
+        "dash-to-dock/override-background" = false;
+        "dash-to-dock/pipeline" = "pipeline_45077595068140";
+        "dash-to-dock/sigma" = 0;
+        "dash-to-dock/static-blur" = true;
+        "dash-to-dock/style-dash-to-dock" = 2;
+        "dash-to-dock/unblur-in-overview" = false;
 
-        hidetopbar = {
-          compatibility = false;
-        };
+        "hidetopbar/compatibility" = false;
 
-        lockscreen = {
-          pipeline = "pipeline_default";
-        };
+        "lockscreen/pipeline" = "pipeline_default";
 
-        overview = {
-          pipeline = "pipeline_default";
-        };
+        "overview/pipeline" = "pipeline_default";
 
-        panel = {
-          blur = false;
-          brightness = 0.59999999999999998;
-          "force-light-text" = true;
-          pipeline = "pipeline_default";
-          sigma = 8;
-          "static-blur" = false;
-        };
+        "panel/blur" = false;
+        "panel/brightness" = 0.59999999999999998;
+        "panel/force-light-text" = true;
+        "panel/pipeline" = "pipeline_default";
+        "panel/sigma" = 8;
+        "panel/static-blur" = false;
 
-        screenshot = {
-          pipeline = "pipeline_default";
-        };
+        "screenshot/pipeline" = "pipeline_default";
 
-        "window-list" = {
-          brightness = 0.59999999999999998;
-          sigma = 30;
-        };
+        "window-list/brightness" = 0.59999999999999998;
+        "window-listsigma" = 30;
       };
       "org/gnome/shell/extensions/clipboard-history" = {
         "cache-only-favorites"=false;
