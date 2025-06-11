@@ -48,6 +48,7 @@ in
       "org/gnome/shell" = {
         enabled-extensions = [
           "clipboard-history@alexsaveau.dev"
+          "dash-to-dock@micxgx.gmail.com"
         ];
       };
       "org/gnome/shell/extensions/clipboard-history" = {
