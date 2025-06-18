@@ -121,6 +121,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     _1password-gui
+    bat
     brave
     brightnessctl
     clang
