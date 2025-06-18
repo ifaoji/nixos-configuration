@@ -346,6 +346,20 @@ in
           args = [ "--stdio" ];
         };
 
+        language-server.go-lsp = {
+          command = "${pkgs.gopls}/bin/gopls";
+          args = [ "-logfile=/tmp/gopls.log" "serve" ];
+        };
+
+
+        language-server.golangci-lint-langserver = {
+          command = "${pkgs.golangci-lint-langserver}/bin/golangci-lint-langserver";
+          args = [ "run" "--output.json.path" "stdout" "--show-stats=false" "--issues-exit-code=1" ];
+          config = {
+            command = [ "${pkgs.golangci-lint}/bin/golangci-lint" "run" "--output.json.path=stdout" "--show-stats=false" "--issues-exit-code=1" ];
+          };
+        };
+
         language-server.pyright = {
           command = "${pkgs.pyright}/bin/pyright-langserver";
           args = [ "--stdio" ];
@@ -393,9 +407,10 @@ in
 
           {
             name = "go";
+            language-servers = [ "go-lsp" "golangci-lint-langserver" ];
             auto-format = true;
             formatter = {
-              command = "goimports";
+              command = "${pkgs.gotools}/bin/goimports";
             };
           }
 

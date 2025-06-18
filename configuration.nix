@@ -132,6 +132,7 @@
     git
     gnomeExtensions.unblank
     gnumake
+    go
     helix
     home-manager
     htop
