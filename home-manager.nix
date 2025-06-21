@@ -451,6 +451,10 @@ in
           {
             name = "css";
             language-servers = [ "vscode-css-language-server" "tailwindcss-ls" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".css"];
+            };
           }
 
           {
@@ -465,16 +469,44 @@ in
           {
             name = "html";
             language-servers = [ "vscode-html-language-server" "tailwindcss-lsp" "emmet-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".html"];
+            };
           }
 
           {
             name = "javascript";
             language-servers = [ "typescript-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".js"];
+            };
+          }
+
+          {
+            name = "json";
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".json"];
+            };
           }
 
           {
             name = "jsx";
             language-servers = [ "typescript-lsp" "tailwindcss-lsp" "emmet-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".jsx"];
+            };
+          }
+
+          {
+            name = "markdown";
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".md"];
+            };
           }
 
           {
@@ -496,11 +528,27 @@ in
           {
             name = "tsx";
             language-servers = [ "typescript-lsp" "tailwindcss-lsp" "emmet-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".tsx"];
+            };
           }
 
           {
             name = "typescript";
             language-servers = [ "typescript-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".ts"];
+            };
+          }
+
+          {
+            name = "yaml";
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".md"];
+            };
           }
         ];
       };
