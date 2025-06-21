@@ -39,9 +39,29 @@ in
 
     dconf.settings = {
       "org/gnome/desktop/wm/keybindings" = {
+        # Navigation
+        move-to-workspace-1 = ["<Shift><Alt>1"];
+        move-to-workspace-2 = ["<Shift><Alt>2"];
+        move-to-workspace-3 = ["<Shift><Alt>3"];
+        move-to-workspace-4 = ["<Shift><Alt>4"];
+        move-to-workspace-left = ["<Shift><Alt>j"];
+        move-to-workspace-right = ["<Shift><Alt>k"];
+        switch-to-workspace-1 = ["<Alt>1"];
+        switch-to-workspace-2 = ["<Alt>2"];
+        switch-to-workspace-3 = ["<Alt>3"];
+        switch-to-workspace-4 = ["<Alt>4"];
+        switch-to-workspace-left = ["<Alt>h"];
+        switch-to-workspace-right = ["<Alt>l"];
+
+        # Windows
+        close = ["<Alt>q"];
+        toggle-maximized = ["<Alt>m"];
         switch-applications = [];
         switch-windows = ["<Alt>Tab"];
         switch-windows-backward = ["<Shift><Alt>Tab"];
+      };
+      "org/gnome/shell/keybindings" = {
+        show-screenshot-ui = ["<Shift><Alt>s"];
       };
       "org/gnome/shell/app-switcher" = {
         current-workspace-only = false;
