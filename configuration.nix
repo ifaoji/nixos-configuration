@@ -138,6 +138,7 @@
     home-manager
     htop
     inetutils
+    jetbrains.datagrip
     nil
     nodejs_22
     oh-my-zsh
