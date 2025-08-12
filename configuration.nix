@@ -122,6 +122,7 @@
   environment.systemPackages = with pkgs; [
     _1password-gui
     bat
+    bitwarden-desktop
     brave
     brightnessctl
     clang
