@@ -147,6 +147,7 @@
     python312Full
     # python312Packages.distutils
     python312Packages.setuptools
+    remmina
     slack
     unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
