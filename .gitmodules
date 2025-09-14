@@ -1,0 +1,3 @@
+[submodule "flakes/zen-browser"]
+	path = flakes/zen-browser
+	url = https://github.com/youwen5/zen-browser-flake.git
