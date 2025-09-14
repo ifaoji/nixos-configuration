@@ -84,7 +84,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -100,7 +100,6 @@
     description = "Simon Dablander";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
-    #  thunderbird
     ];
   };
 
@@ -165,6 +164,7 @@
     python312Packages.setuptools
     remmina
     slack
+    thunderbird
     unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     vscode
