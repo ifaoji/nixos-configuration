@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   imports =
@@ -65,7 +65,7 @@
         up-restart
         down ${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved
         down-pre
-        config /home/phi/projects/work/openvpn/work.conf
+        config /home/${username}/projects/work/openvpn/work.conf
       '';
       autoStart = false;
       updateResolvConf = false;
@@ -95,7 +95,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.phi = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Simon Dablander";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
@@ -113,7 +113,7 @@
     plugins = ["git" "docker" "zoxide"];
   };
 
-  # home-manager.users.phi = {
+  # home-manager.users.${username} = {
   # };
 
   # programs.ghostty = {
@@ -190,13 +190,14 @@
     enable = true;
     # Certain features, including CLI integration and system authentication support,
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "phi" ];
+    polkitPolicyOwners = [ username ];
   };
 
   environment.etc = {
       "1password/custom_allowed_browsers" = {
         text = ''
           brave
+          zen
         '';
         mode = "0755";
       };

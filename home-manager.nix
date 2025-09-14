@@ -1,3 +1,4 @@
+{ username, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
 in
@@ -7,8 +8,8 @@ in
       (import "${home-manager}/nixos")
     ];
 
-  users.users.phi.isNormalUser = true;
-  home-manager.users.phi = { config, pkgs, lib, ... }: {
+  users.users.${username}.isNormalUser = true;
+  home-manager.users.${username} = { config, pkgs, lib, ... }: {
     nixpkgs = {
       config = {
         allowUnfree = true;
@@ -220,12 +221,12 @@ in
     programs.ghostty = {
       enable = true;
       settings = {
-                # This is the configuration file for Ghostty.
+        # This is the configuration file for Ghostty.
         #
         # This template file has been automatically created at the following
         # path since Ghostty couldn't find any existing config files on your system:
         #
-        #   /home/phi/.config/ghostty/config
+        #   /home/${username}/.config/ghostty/config
         #
         # The template does not set any default options, since Ghostty ships
         # with sensible defaults for all options. Users should only need to set
