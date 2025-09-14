@@ -523,6 +523,10 @@ in
           {
             name = "svelte";
             language-servers = [ "svelte-lsp" "tailwindcss-lsp" "emmet-lsp" ];
+            formatter = {
+              command = "${pkgs.prettierd}/bin/prettierd";
+              args = [".svelte"];
+            };
           }
 
           {
