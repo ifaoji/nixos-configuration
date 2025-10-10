@@ -1,3 +1,6 @@
 [submodule "flakes/zen-browser"]
 	path = flakes/zen-browser
 	url = https://github.com/youwen5/zen-browser-flake.git
+[submodule "flakes/home-manager"]
+	path = flakes/home-manager
+	url = https://github.com/nix-community/home-manager

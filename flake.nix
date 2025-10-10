@@ -5,6 +5,11 @@
     self.submodules = true;
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     zen-browser-flake.url = "path:./flakes/zen-browser";
+    home-manager-flake = {
+      url = "path:./flakes/home-manager";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

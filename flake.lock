@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "home-manager-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./flakes/home-manager",
+        "type": "path"
+      },
+      "original": {
+        "path": "./flakes/home-manager",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1757810152,
@@ -34,6 +50,7 @@
     },
     "root": {
       "inputs": {
+        "home-manager-flake": "home-manager-flake",
         "nixpkgs": "nixpkgs",
         "zen-browser-flake": "zen-browser-flake"
       }
