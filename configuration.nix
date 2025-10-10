@@ -145,6 +145,7 @@
     deno
     discord
     docker
+    eza
     flatpak
     ghostty
     git
