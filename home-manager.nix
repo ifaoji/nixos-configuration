@@ -33,6 +33,21 @@
       pkgs.gnomeExtensions.unblank
     ];
 
+    home.pointerCursor = {
+      name = "breeze_cursors";
+      package = pkgs.kdePackages.breeze;
+      size = 24;
+    };
+
+    gtk = {
+      enable = true;
+      cursorTheme = {
+        name = "breeze_cursors";
+        package = pkgs.kdePackages.breeze;
+        size = 24;
+      };
+    };
+
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "24.11";
