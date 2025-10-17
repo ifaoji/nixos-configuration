@@ -145,6 +145,7 @@
     deno
     discord
     docker
+    evince
     eza
     flatpak
     ghostty
