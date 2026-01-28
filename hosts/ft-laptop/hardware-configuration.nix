@@ -8,6 +8,7 @@
     ];
 
   mySystem.openvpn.enable = true;
+  mySystem.suites.work.enable = true;
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "vmd" "nvme" ];
   boot.initrd.kernelModules = [ "xe" ];

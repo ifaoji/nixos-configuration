@@ -19,6 +19,8 @@
   mySystem.openvpn.enable = lib.mkDefault false;
   mySystem.zsh.enable = lib.mkDefault true;
 
+  mySystem.suites.work.enable = lib.mkDefault false;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -123,7 +125,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    bitwarden-desktop
     brave
     brightnessctl
     clang
@@ -144,9 +145,6 @@
     python312Full
     # python312Packages.distutils
     python312Packages.setuptools
-    remmina
-    slack
-    thunderbird
     vim
     vscode
     inputs.zen-browser-flake.packages.${pkgs.system}.default

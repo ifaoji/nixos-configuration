@@ -6,5 +6,7 @@
     ./apps/_1password.nix
     ./apps/helix.nix
     ./apps/zsh.nix
+
+    ./suites/work.nix
   ];
 }
