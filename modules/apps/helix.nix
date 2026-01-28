@@ -25,6 +25,7 @@ in {
             line-number = "relative";
             rulers = [ 80 ];
             bufferline = "multiple";
+            cursorline = true;
           };
 
           editor.cursor-shape = {
@@ -39,8 +40,12 @@ in {
             render = true;
           };
 
+          editor.inline-diagnostics = {
+            cursor-line = "hint";
+          };
+
           editor.lsp = {
-            display-inlay-hints = false;
+            display-inlay-hints = true;
             auto-signature-help = false;
           };
 
@@ -63,9 +68,15 @@ in {
             };
           };
 
+          keys.insert = {
+            j = { k = "normal_mode"; };
+          };
+
           keys.normal = {
             A-x = "extend_to_line_bounds";
             X = [ "extend_line_up" "extend_to_line_bounds" ];
+            ret = "goto_word";
+            space = { o = "file_picker_in_current_buffer_directory"; };
           };
 
           keys.select = {
