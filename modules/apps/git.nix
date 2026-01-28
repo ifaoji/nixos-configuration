@@ -16,7 +16,7 @@ in {
     home-manager.users.${username} = { config, pkgs, lib, ... }: {
       programs.git = {
         enable = true;
-        extraConfig = {
+        settings = {
           core = {
             editor = "hx";
           };

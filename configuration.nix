@@ -57,8 +57,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.exportConfiguration = true;
@@ -142,12 +142,12 @@
     nil
     nodejs_22
     postman
-    python312Full
+    python314
     # python312Packages.distutils
-    python312Packages.setuptools
+    python314Packages.setuptools
     vim
     vscode
-    inputs.zen-browser-flake.packages.${pkgs.system}.default
+    inputs.zen-browser-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   services.flatpak.enable = true;

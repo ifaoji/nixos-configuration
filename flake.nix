@@ -3,7 +3,7 @@
 
   inputs = {
     self.submodules = true;
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     zen-browser-flake.url = "path:./flakes/zen-browser";
     home-manager-flake = {
       url = "path:./flakes/home-manager";

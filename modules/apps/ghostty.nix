@@ -60,7 +60,7 @@ in {
           # # Just for example:
           # resize-overlay-duration = 4s 200ms
 
-          theme = "dark:catppuccin-frappe,light:catppuccin-latte";
+          theme = "dark:Catppuccin Frappe,light:Catppuccin Latte";
 
           font-family = "Monaspace Radon Var";
           font-feature = [
