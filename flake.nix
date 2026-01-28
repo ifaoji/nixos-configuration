@@ -24,7 +24,7 @@
           modules = [
             inputs.home-manager-flake.nixosModules.home-manager
             ./configuration.nix
-            ./hosts/ft-laptop/hardware-configuration.nix
+            ./hosts/ft-laptop/default.nix
             ./modules
           ];
         };
