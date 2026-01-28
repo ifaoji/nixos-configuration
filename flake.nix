@@ -28,6 +28,17 @@
             ./modules
           ];
         };
+
+        ft-desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit username; inherit inputs; };
+          modules = [
+            inputs.home-manager-flake.nixosModules.home-manager
+            ./configuration.nix
+            ./hosts/ft-desktop/hardware-configuration.nix
+            ./modules
+          ];
+        };
       };
     };
 }
