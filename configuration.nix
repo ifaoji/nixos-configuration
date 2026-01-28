@@ -128,6 +128,7 @@
     clang
     deno
     discord
+    devpod
     docker
     evince
     flatpak
