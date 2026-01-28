@@ -9,13 +9,6 @@
 
   users.users.${username}.isNormalUser = true;
   home-manager.users.${username} = { config, pkgs, lib, ... }: {
-    nixpkgs = {
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = (_: true);
-      };
-    };
-
     programs.home-manager.enable = true;
     home.file."hello.txt".text = "Hello from Home Manager!";
 
