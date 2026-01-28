@@ -18,6 +18,10 @@
     "xe.enable_psr=0"
     "i2c_hid.debug=1"
     "pci=nocrs"
+
+    "i8042.nomux"
+    "i8042.reset"
+    "i8042.nopnp"
   ];
 
   fileSystems."/" =
