@@ -22,8 +22,10 @@
           inherit system;
           specialArgs = { inherit username; inherit inputs; };
           modules = [
+            inputs.home-manager-flake.nixosModules.home-manager
             ./configuration.nix
             ./hosts/ft-laptop/hardware-configuration.nix
+            ./modules
           ];
         };
       };

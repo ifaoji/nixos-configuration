@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, username, inputs, ... }:
+{ config, pkgs, username, inputs, lib, ... }:
 
 {
   imports =
@@ -11,6 +11,13 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  mySystem._1password.enable = lib.mkDefault true;
+  mySystem.git.enable = lib.mkDefault true;
+  mySystem.ghostty.enable = lib.mkDefault true;
+  mySystem.helix.enable = lib.mkDefault true;
+  mySystem.openvpn.enable = lib.mkDefault false;
+  mySystem.zsh.enable = lib.mkDefault true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -59,21 +66,6 @@
     variant = "";
   };
 
-  services.openvpn.servers = {
-    work = {
-      config = ''
-        script-security 2
-        up ${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved
-        up-restart
-        down ${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved
-        down-pre
-        config /home/${username}/projects/work/openvpn/work.conf
-      '';
-      autoStart = false;
-      updateResolvConf = false;
-    };
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -105,14 +97,9 @@
     ];
   };
 
-  users.defaultUserShell = pkgs.zsh;
-
-  programs.zsh.enable = true;
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    theme = "robbyrussell";
-    plugins = ["git" "docker" "zoxide"];
-  };
+  fonts.packages =  with pkgs; [
+    monaspace
+  ];
 
   # home-manager.users.${username} = {
   # };
@@ -135,9 +122,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    _1password-cli
-    _1password-gui
-    bat
     bitwarden-desktop
     brave
     brightnessctl
@@ -146,22 +130,14 @@
     discord
     docker
     evince
-    eza
     flatpak
-    ghostty
-    git
-    gnomeExtensions.unblank
     gnumake
     go
-    helix
+    # helix
     home-manager
-    htop
-    inetutils
     jetbrains.datagrip
     nil
     nodejs_22
-    oh-my-zsh
-    openvpn
     postman
     python312Full
     # python312Packages.distutils
@@ -169,13 +145,9 @@
     remmina
     slack
     thunderbird
-    unzip
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     vscode
-    wget
     inputs.zen-browser-flake.packages.${pkgs.system}.default
-    zoxide
-    zsh
   ];
 
   services.flatpak.enable = true;
@@ -190,23 +162,6 @@
 
   virtualisation.docker.enable = true;
 
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ username ];
-  };
-
-  environment.etc = {
-      "1password/custom_allowed_browsers" = {
-        text = ''
-          brave
-          zen
-        '';
-        mode = "0755";
-      };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
