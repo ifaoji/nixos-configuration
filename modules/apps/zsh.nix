@@ -23,17 +23,29 @@ in {
 
     users.defaultUserShell = pkgs.zsh;
 
-    programs.zsh.enable = true;
-    programs.zsh.ohMyZsh = {
+    programs.zsh = {
       enable = true;
-      theme = "robbyrussell";
 
-      plugins = [
-        "docker"
-        "zoxide"
-      ]
-        ++ lib.optionals config.mySystem.git.enable [ "git" ]
-      ;
+      shellAliases = {
+        l = "eza -lah";
+        la = "eza -la --icons --git";
+        ll = "eza -l --icons --git";
+        ls = "eza";
+        lsa = "eza -lah";
+        lt = "eza --tree --level=2 --icons";
+      };
+
+      ohMyZsh = {
+        enable = true;
+        theme = "robbyrussell";
+
+        plugins = [
+          "docker"
+          "zoxide"
+        ]
+          ++ lib.optionals config.mySystem.git.enable [ "git" ]
+        ;
+      };
     };
   };
 }
