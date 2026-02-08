@@ -12,9 +12,21 @@ in {
       helix
     ];
 
+    environment.variables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+    };
+
     home-manager.users.${username} = { config, pkgs, lib, ... }: {
+
+      home.sessionVariables = {
+        EDITOR = "hx";
+        VISUAL = "hx";
+      };
+
       programs.helix = {
         enable = true;
+        defaultEditor = true;
 
         settings = {
           # theme = "catppuccin_latte";
