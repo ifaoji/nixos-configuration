@@ -12,11 +12,21 @@ in {
     environment.systemPackages = with pkgs; [
       bat
       eza
+      fd
+      ffmpeg
+      fzf
       htop
+      imagemagick
       inetutils
+      jq
       oh-my-zsh
+      poppler
+      resvg
+      ripgrep
       unzip
       wget
+      wl-clipboard
+      yazi
       zoxide
       zsh
     ];
@@ -46,6 +56,16 @@ in {
           ++ lib.optionals config.mySystem.git.enable [ "git" ]
         ;
       };
+
+      interactiveShellInit = ''
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          command yazi "$@" --cwd-file="$tmp"
+          IFS= read -r -d ''' cwd < "$tmp"
+          [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+          rm -f -- "$tmp"
+        }
+      '';
     };
   };
 }
