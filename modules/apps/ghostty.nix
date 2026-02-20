@@ -85,6 +85,7 @@ in {
             "ctrl+q=close_tab"
             "ctrl+h=move_tab:-1"
             "ctrl+l=move_tab:1"
+            "ctrl+shift+r=prompt_surface_title"
           ];
         };
       };
