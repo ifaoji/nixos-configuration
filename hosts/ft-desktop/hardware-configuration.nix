@@ -20,12 +20,22 @@
 
   boot.initrd.luks.devices."luks-07df582e-c86c-4eaa-84c8-15bbb181c1bb".device = "/dev/disk/by-uuid/07df582e-c86c-4eaa-84c8-15bbb181c1bb";
   boot.initrd.luks.devices."luks-08cc3e78-1cbe-40d9-8ec3-6a035e051f11".device = "/dev/disk/by-uuid/08cc3e78-1cbe-40d9-8ec3-6a035e051f11";
+  boot.initrd.luks.devices."luks-secondary" = {
+    device = "/dev/disk/by-uuid/d88f69d2-7461-48c4-8069-5e56bd01f644";
+  };
+
+  boot.initrd.luks.reusePassphrases = true;
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/E184-48AC";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+
+  fileSystems."/mnt/bigboy" = {
+    device = "/dev/mapper/luks-secondary";
+    fsType = "ext4";
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/fc86796b-6e1e-41ba-bb9c-9d2f78d0871e"; }
